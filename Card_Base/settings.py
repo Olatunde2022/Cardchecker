@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECRET_KEY = 'django-insecure-m%figuk!5qpkuc32)n=zr0(^xis+61lf-8ieb)o6e_rd)@x1fk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # Application definition
@@ -84,7 +84,7 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL")
-DATABASES['default'] = dj_database_url.parse(database_url)
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 # DATABASES["default"] = dj_database_url.parse()
 # DATABASES["default"] = dj_database_url.parse("postgres://carddb_user:crKSljI8l7PgyYVgtQze5N5dzl8e6h0x@dpg-cklum42v7m0s73dnb52g-a.oregon-postgres.render.com/carddb")
