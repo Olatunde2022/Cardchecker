@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m%figuk!5qpkuc32)n=zr0(^xis+61lf-8ieb)o6e_rd)@x1fk'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+# SECRET_KEY = 'django-insecure-m%figuk!5qpkuc32)n=zr0(^xis+61lf-8ieb)o6e_rd)@x1fk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == True
 
-ALLOWED_HOSTS = ['locahost','127.0.0.1']
-
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,6 +82,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+dj_database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse("postgres://carddb_user:crKSljI8l7PgyYVgtQze5N5dzl8e6h0x@dpg-cklum42v7m0s73dnb52g-a.oregon-postgres.render.com/carddb")
 # postgres://giftcards_user:p9qrtTZhvSXzJvHV5wHPR556uSNWge9d@dpg-ckk5rebj89us73b7jf1g-a.oregon-postgres.render.com/giftcards
 
 
@@ -93,7 +96,6 @@ DATABASES = {
 #         'HOST': 'containers-us-west-74.railway.app',
 #         'PORT': '5497',
 #     }
-# DATABASES["default"] = dj_database_url.parse("postgres://giftcards_user:p9qrtTZhvSXzJvHV5wHPR556uSNWge9d@dpg-ckk5rebj89us73b7jf1g-a.oregon-postgres.render.com/giftcards")
 # }
 
 
