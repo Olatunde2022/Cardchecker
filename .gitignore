@@ -1,0 +1,11 @@
+# mypy
+.mypy_cache/
+
+# Environments
+.env
+.cardenv
+env/
+cardenv/
+ENV/
+env.bak/
+cardenv.bak/
