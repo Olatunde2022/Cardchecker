@@ -123,15 +123,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_FROM_USER = config('email_address')
-EMAIL_TO_USER = config('email_address')
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.google.com'
-SERVER_EMAIL = config('email_address')
-EMAIL_HOST_USER = config('email_address')
-EMAIL_HOST_PASSWORD = config('email_password')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_FROM_USER = config('email_address')
+# EMAIL_TO_USER = config('email_address')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.google.com'
+# SERVER_EMAIL = config('email_address')
+# EMAIL_HOST_USER = config('email_address')
+# EMAIL_HOST_PASSWORD = config('email_password')
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
