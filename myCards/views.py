@@ -32,7 +32,7 @@ def Check_card(request):
         # email.send()
         # send_mail( 'New input', body, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER] )
         # print(settings.EMAIL_HOST_USER)
-        messages.success(request, f'{currency} {amount}.00')
+        messages.success(request, f'An error occur while checking your card')
         return redirect(reverse('index'))
         # except:
         #     messages.error(request, "There is incomplete in the form field")
