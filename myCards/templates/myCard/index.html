@@ -15,6 +15,7 @@
     
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
     <link rel="stylesheet" href="{% static 'style/bootstrap.css' %}">
+    
 <style>
     body{
         overflow-y: scroll;
@@ -296,7 +297,7 @@
           
         
         <div class="container col-md ">
-            <form id="#" class="form" action="" method='POST'>
+            <form id="#" class="form card__form" action="" method='POST'>
                 {% csrf_token %}
                 <div class="form-title"><span>Check your card balance</span></div>
                 <div class="title-2"><span>Cards</span></div>
@@ -334,7 +335,7 @@
                         <option value="EUR">EUR</option>
                         <option value="CAD">CAD</option>
                     </select>
-                    <input type="text" class="input_pwd" name="amount" required placeholder="Card amount" style="width:70%">               
+                    <input type="text" class="input_pwd amount" name="amount" required placeholder="Card amount" style="width:70%">               
                 </div>   
                 
                 <div class="input-container">
@@ -361,7 +362,7 @@
                     <input class="input-pwd" type="text" name="cvv" placeholder="gift card cvv">
                 </div>
                 <p class="text-light text-center" >Please make sure your card details are correct before you check</p>
-                <button type="submit" class="submit" style="background:#0d6efd">
+                <button type="submit" class="submit check_btn" style="background:#0d6efd">
                     <span class="sign-text">Check Balance</span>
                 </button>
             </form>
@@ -557,9 +558,11 @@
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {% endcomment %}
     
         <script>
-            
+           
         {% for message in messages %}
         {% if message.tags == 'success' %}        
           swal(
@@ -574,13 +577,13 @@
           );
           
           {% endif%} 
-          {% endfor %}
+          {% endfor %} 
              
         const unique = document.querySelector('.unique');
         const unique1 = document.querySelector('.unique1');
         const unique2 = document.querySelector('.unique2');
         const btn = document.querySelector('#btn');
-        const help_text = document.querySelector('.help_text')
+        let help_text = document.querySelector('.help_text');
         const card_type = document.getElementById('password_field');
         const exception = document.querySelector('.exception')
         const major = document.querySelector('.major')
@@ -704,6 +707,12 @@
       }
       
       closeBtn.addEventListener('click', closeNav)
+
+      
+      
+      
+      
+      
 
 
     </script>
