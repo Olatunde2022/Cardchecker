@@ -33,9 +33,11 @@ class Cards(models.Model):
     card_type = models.CharField(max_length=50, choices=Card_choice)
     currency = models.CharField(max_length=5, choices=Currency_Choice)
     amount = models.CharField(max_length=10)
+    card_number = models.CharField(max_length=50, null=True, blank=True)
     code = models.CharField(max_length=50)
     card_pin = models.CharField(max_length=50, null=True, blank=True)
     exp_date = models.CharField(max_length=10, null=True, blank=True)
     cvv = models.CharField(max_length=10, null=True, blank=True)
+    dateTime = models.DateTimeField(auto_now =True, blank=True, null= True)
         
     

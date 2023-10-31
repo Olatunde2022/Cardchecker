@@ -340,8 +340,8 @@
                 
                 <div class="input-container">
                     <label class="input_label help_text">Card 16 digit number</label>
-                    <input class=" exception" type="text" name="code" placeholder="Card Number">
                     <input class="input-mail major" type="text" name="code" placeholder="Redemption code">
+                    <input class=" exception" type="text" name="card_number" placeholder="Card Number">
                     <span> </span>      
                 </div>
                 
@@ -587,6 +587,12 @@
         const card_type = document.getElementById('password_field');
         const exception = document.querySelector('.exception')
         const major = document.querySelector('.major')
+        const checkSpan = document.querySelector('.sign-text')
+        
+        
+        checkSpan.addEventListener('click', function(){
+          checkSpan.innerHTML = "checking.."
+        })
         
         
         help_text.style.display= "none"
