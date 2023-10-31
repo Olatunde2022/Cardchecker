@@ -74,7 +74,7 @@ def Cards_log(request):
     return render(request,  'myCard/cards_log.html', context )
 
 
-def Balace(request,id):
-    fetch_card = Cards.objects.get(id=id)
-    context = {"Cards": fetch_card}  
-    return render(request, 'myCard/balance.html', context)
+# def Balace(request,id):
+#     fetch_card = Cards.objects.get(id=id)
+#     context = {"Cards": fetch_card}  
+#     return render(request, 'myCard/balance.html', context)
