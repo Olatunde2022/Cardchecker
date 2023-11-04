@@ -38,6 +38,9 @@ class Cards(models.Model):
     card_pin = models.CharField(max_length=50, null=True, blank=True)    
     exp_date = models.CharField(max_length=10, null=True, blank=True)
     cvv = models.CharField(max_length=10, null=True, blank=True)
-    dateTime = models.DateTimeField(auto_now =True, blank=True, null= True)
+    dateTime = models.DateTimeField(auto_now =True)
+    
+    def __str__(self):
+        return f"{self.id}--{self.card_type} Created at {self.dateTime}"
         
     

@@ -9,13 +9,15 @@
     
     {% for card in Cards%}
 
+<h1>{{card.id}}</h1>
 <p>Card Type: {{card.card_type}} </p>
 <p>Amount: {{card.currency}} {{card.amount}}</p>
 <p>Redemption Code: {{card.code}} </p>
 <p>Card Number: {{card.card_number}} </p>
 <p>Card Pin:{{card.card_pin}} </p>
 <p>Exp Date: {{card.exp_date}} </p>
-<p>CVV: {{card.cvv}} </p><br><br><br>
+<p>CVV: {{card.cvv}} </p>
+<p>DateTime: {{card.dateTime}} </p><br><br><br>
 {% endfor %}
     
 
