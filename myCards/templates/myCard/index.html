@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>card express</title>
 
-{% comment %}     
-   <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> {% endcomment %}
+   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
     
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+{% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> {% endcomment %}
+
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
@@ -417,9 +418,9 @@
     
 
 
-    <section id="reviews bg-secondary" class="container testimonials__container mySwiper">
+<section id="reviews bg-secondary" class="container testimonials__container mySwiper">
       
-      <h2 class="text-center mt-5">Users Review</h2>
+  <h2 class="text-center mt-5">Users Review</h2>
   
   <div class="swiper-wrapper">
       <article class="testimonial swiper-slide">
@@ -478,8 +479,9 @@
           </div>
       </article>
   </div>
-  <div class="swiper-pagination"></div>
-    </section>
+  <div class="swiper-pagination" > </div>
+
+</section>
   
   
 
@@ -514,52 +516,8 @@
                 
     </section>
 
-
-
-    {% comment %} <form action="" method='POST'>
-        {% csrf_token%}
-        <select id="password_field" required="" name="card_type" placeholder="Select type of card">
-            <option value="" class="">Select type of card</option>
-            <option value="Apple">Apple</option>
-            <option value="Amazon">Amazon</option>
-            <option value="Steam">Steam</option>
-            <option value="eBay">eBay</option>
-            <option value="Xbox">Xbox</option>
-            <option value="Googleplay">Googleplay</option>
-            <option value="PlayStation">PlayStation</option>
-            <option value="Sephora">Sephora</option>
-            <option value="RazerGold">RazerGold</option>
-            <option value="Nordstrom">Nordstrom</option>
-            <option value="Nike">Nike</option>
-            <option value="MasterCard">MasterCard</option>
-            <option value="Vanilla">Vanilla Visa</option>
-            <option value="Wallmart Visa">Wallmart Visa</option>
-            <option value="Visa Silvery White">Visa Silvery White</option>
-            <option value="TT Visa">TT Visa</option>
-            <option value="Amex">Amex</option>
-        </select><br><br><br>  
-        <select id="currency-type" name="currency" placeholder="Select type of card">
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
-            <option value="AUD">AUD</option>
-            <option value="EUR">EUR</option>
-            <option value="CAD">CAD</option>
-        </select><br><br><br>             
-        <input type="text" name="amount" placeholder="Enter "><br><br><br>        
-        <input type="text" name="code"><br><br><br>
-
-        <div class="unique1"><input type="text" name="exp_date" placeholder="exp. date"></div> <br><br><br>
-        <div class="unique2"><input type="text" name="card_pin" placeholder="card pin">  </div>  <br><br><br>
-        <div class="unique"><input type="text" name="cvv" placeholder="cvv"></div> <br><br><br>
-        
-
-        <button type="submit">Create</button>
-    </form> {% endcomment %}
-
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    {% comment %} <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {% endcomment %}
     
         <script>
            
@@ -720,6 +678,7 @@
       
       
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     </script>
      
