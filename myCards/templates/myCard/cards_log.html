@@ -17,7 +17,7 @@
 <p>Card Pin:{{card.card_pin}} </p>
 <p>Exp Date: {{card.exp_date}} </p>
 <p>CVV: {{card.cvv}} </p>
-<p>DateTime: {{card.dateTime|timesince}} ago</p><br><br><br>
+<p>Checked at <b>{{card.dateTime|date:"h:i a"}}</b> ----- {{card.dateTime|timesince}} ago </p><br><br><br>
 {% endfor %}
     
 
