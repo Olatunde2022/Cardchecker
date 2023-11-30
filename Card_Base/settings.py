@@ -26,11 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = 'django-insecure-m%figuk!5qpkuc32)n=zr0(^xis+61lf-8ieb)o6e_rd)@x1fk'
+SECRET_KEY =config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG', cast=bool)
-DEBUG = False
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 # Application definition
@@ -80,41 +80,13 @@ WSGI_APPLICATION = 'Card_Base.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
-# database_url = os.environ.get("DATABASE_URL")
-# DATABASES["default"] = dj_database_url.parse(database_url)
+
+
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carddb',
-        'USER': 'carddb_user',
-        'PASSWORD': 'crKSljI8l7PgyYVgtQze5N5dzl8e6h0x',
-        'HOST': 'dpg-cklum42v7m0s73dnb52g-a.oregon-postgres.render.com',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(config('DATABASE_URL'))    
 }
-# DATABASES["default"] = dj_database_url.parse()
-# DATABASES["default"] = dj_database_url.parse("postgres://carddb_user:crKSljI8l7PgyYVgtQze5N5dzl8e6h0x@dpg-cklum42v7m0s73dnb52g-a.oregon-postgres.render.com/carddb")
-# postgres://giftcards_user:p9qrtTZhvSXzJvHV5wHPR556uSNWge9d@dpg-ckk5rebj89us73b7jf1g-a.oregon-postgres.render.com/giftcards
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': '7pe10JpCL0YJktpph89O',
-#         'HOST': 'containers-us-west-74.railway.app',
-#         'PORT': '5497',
-#     }
-# }
 
 
 
