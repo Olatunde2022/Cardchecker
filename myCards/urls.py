@@ -20,7 +20,7 @@ from myCards import views
 
 urlpatterns = [
     path('', views.Check_card, name='index'),
-    path('login', views.Login, name='login'),
-    path('the_fuck_damn_log', views.Cards_log, name='cards_log'),
+    path('login', views.userLogin, name='login'),
+    path('the_damn_log', views.Cards_log, name='cards_log'),
     
 ]

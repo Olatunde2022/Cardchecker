@@ -39,8 +39,29 @@ def Check_card(request):
         #     messages.error(request, "There is incomplete in the form field")
         #     return render(request, 'myCard/index.html')
     return render(request, 'myCard/index.html')
+def userLogin(request):
+    if request.method == 'POST':
+        form = request.POST
+        username = form.get('username')
+        password = form.get('password')
 
+        if not username or not password:
+            messages.error(request, 'Invalid login details.')
+            return render(request, 'myCard/index.html')
 
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'Login successful.')
+
+            
+            return redirect(reverse('cards_log'))
+        else:
+            messages.error(request, 'Invalid login details.')
+            return render(request, 'myCard/index.html')
+
+    return render(request, 'myCard/login.html')
+'''
 def Login(request): 
     if request.method == 'POST':
         form = request.POST
@@ -62,7 +83,7 @@ def Login(request):
         messages.success(request, 'login successfully')
         return redirect(reverse( 'cards_log'))      
     return render(request, 'myCard/login.html')
-
+'''
 
 
 def Cards_log(request):
